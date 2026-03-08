@@ -48,6 +48,10 @@
   },
   "scripts": {
     "android:assemble": "cd apps/android && ./gradlew :app:assembleDebug",
+    "desktop:dev": "cd apps/electron && npm run dev",
+    "desktop:build:linux": "pnpm build && pnpm ui:build && cd apps/electron && npm run build:linux",
+    "desktop:build:win": "pnpm build && pnpm ui:build && cd apps/electron && npm run build:win",
+    "desktop:install": "cd apps/electron && npm install",
     "android:install": "cd apps/android && ./gradlew :app:installDebug",
     "android:run": "cd apps/android && ./gradlew :app:installDebug && adb shell am start -n ai.openclaw.android/.MainActivity",
     "android:test": "cd apps/android && ./gradlew :app:testDebugUnitTest",
