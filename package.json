@@ -3,15 +3,15 @@
   "version": "2026.2.27",
   "description": "Multi-channel AI gateway with extensible messaging integrations",
   "keywords": [],
-  "homepage": "https://github.com/openclaw/openclaw#readme",
+  "homepage": "https://github.com/Rekonquest/openclaw#readme",
   "bugs": {
-    "url": "https://github.com/openclaw/openclaw/issues"
+    "url": "https://github.com/Rekonquest/openclaw/issues"
   },
   "license": "MIT",
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openclaw/openclaw.git"
+    "url": "git+https://github.com/Rekonquest/openclaw.git"
   },
   "bin": {
     "openclaw": "openclaw.mjs"
@@ -48,6 +48,10 @@
   },
   "scripts": {
     "android:assemble": "cd apps/android && ./gradlew :app:assembleDebug",
+    "desktop:dev": "cd apps/electron && npm run dev",
+    "desktop:build:linux": "pnpm build && pnpm ui:build && cd apps/electron && npm run build:linux",
+    "desktop:build:win": "pnpm build && pnpm ui:build && cd apps/electron && npm run build:win",
+    "desktop:install": "cd apps/electron && npm install",
     "android:install": "cd apps/android && ./gradlew :app:installDebug",
     "android:run": "cd apps/android && ./gradlew :app:installDebug && adb shell am start -n ai.openclaw.android/.MainActivity",
     "android:test": "cd apps/android && ./gradlew :app:testDebugUnitTest",

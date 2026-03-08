@@ -75,7 +75,7 @@ export type RunCronAgentTurnResult = {
    * channel (via outbound payloads, the subagent announce flow, or a matching
    * messaging-tool send). Callers should skip posting a summary to the main
    * session to avoid duplicate
-   * messages.  See: https://github.com/openclaw/openclaw/issues/15692
+   * messages.  See: https://github.com/Rekonquest/openclaw/issues/15692
    */
   delivered?: boolean;
   /**

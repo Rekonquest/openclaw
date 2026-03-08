@@ -125,7 +125,7 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 ### 选项 B：可修改安装（用于调试）
 
 ```bash
-git clone https://github.com/openclaw/openclaw.git
+git clone https://github.com/Rekonquest/openclaw.git
 cd openclaw
 npm install
 npm run build

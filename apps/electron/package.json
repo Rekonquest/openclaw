@@ -1,0 +1,78 @@
+{
+  "name": "openclaw-desktop",
+  "version": "2026.2.27",
+  "description": "OpenClaw Desktop — Personal AI Assistant",
+  "author": "Rekonquest",
+  "license": "MIT",
+  "main": "src/main.mjs",
+  "scripts": {
+    "dev": "electron .",
+    "build:linux": "electron-builder --linux",
+    "build:win": "electron-builder --win",
+    "build:all": "electron-builder --linux --win"
+  },
+  "dependencies": {
+    "electron-store": "^10.0.0"
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "ai.openclaw.desktop",
+    "productName": "OpenClaw",
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "../../dist",
+        "to": "openclaw-dist",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "../../ui/dist",
+        "to": "openclaw-ui",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "../../openclaw.mjs",
+        "to": "openclaw.mjs"
+      }
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64", "arm64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "category": "Utility",
+      "icon": "assets/icons",
+      "desktop": {
+        "StartupWMClass": "openclaw-desktop"
+      }
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "icon": "assets/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icons/icon.ico",
+      "uninstallerIcon": "assets/icons/icon.ico",
+      "installerHeaderIcon": "assets/icons/icon.ico"
+    }
+  }
+}
